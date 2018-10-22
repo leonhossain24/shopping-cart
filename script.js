@@ -13,6 +13,40 @@ var cart = {
 
 $(document).ready(function(){
   console.log("Start here");
+  
+  $('#itemNo').text(cart.items.length);
+  
+  $('#showCartBtn').click(function()
+  {
+    $('#cart').show();
+    $('#products').hide();
+    $('#showCartBtn').hide();
+  });
+  
+  
+  $('#cls').click(function()
+  {
+    
+     $('#cart').hide();
+      $('#cls').hide();
+    $('#products').show();
+   
+    
+    
+  });
+  
+  
+  cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')):
+  {
+    items : [],
+    total: 0
+  };
+  
+  localStorage.setItem('cart', JSON.stringify(cart));
+  
+  // $('#itemNo').text(cart.items.length);
+ 
+  
   // Basic tasks
   // 1. Show / hide cart section on button click (Cart button / close cutton)
   // 2. Dynamically load products to view
